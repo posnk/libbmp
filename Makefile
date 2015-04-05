@@ -20,7 +20,7 @@ CFLAGS = -Wall -g
 
 # define any directories containing header files other than /usr/include
 #
-INCLUDES = 
+INCLUDES = -Iinclude 
 
 # define library paths in addition to /usr/lib
 #   if I wanted to include libraries not in /usr/lib I'd specify
@@ -53,7 +53,7 @@ $(BUILDDIR)$(PROGNAME): $(OBJS)
 
 install: $(BUILDDIR)$(PROGNAME)
 	cp $(BUILDDIR)$(PROGNAME) $(DESTDIR)$(PROGPATH)
-	cp include/* $(DESTDIR)/usr/include/	
+	cp -r include/* $(DESTDIR)/usr/include/	
 
 .PHONY: depend clean
 
